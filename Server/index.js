@@ -34,15 +34,16 @@ app.use('/api', router)
 
 
 /** start server only when we have valid connection */
-connect().then(() => {
+// connect().then(() => {
     try {
         app.listen(port, () => {
+            connect();
             console.log(`Server connected to http://localhost:${port}`);
         })
     } catch (error) {
-        console.log('Cannot connect to the server')
+        console.log(error)
     }
-}).catch(error => {
-    console.log("Invalid database connection...!");
-})
+// }).catch(error => {
+//     console.log("Invalid database connection...!");
+// })
 
